@@ -1,0 +1,38 @@
+@import '../../theme.scss';
+
+// banner slider
+
+.img_container{
+    // height: 400px;
+    img{
+        // height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+// category slider
+.swiper_button_container{
+    display: flex;
+    justify-content: end;
+    position: relative;
+    top: -40px
+}
+
+.nav_btn{
+    // border: 1px solid grey;
+    width: 45px;
+    height: 45px;
+    background-color: $ligthGrey2;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.product_other_images {
+    height: 125px;
+    width: 145px;
+    object-fit: cover;
+  }

@@ -1,0 +1,121 @@
+@import '../../theme.scss';
+
+.about_container{
+    margin-top: 50px;
+    margin-right: 0 !important;
+    margin-left: 100px !important;
+
+    .about_main_content{
+       display: flex;
+       flex-direction: column;
+       justify-content: center !important;
+       margin-top: 100px;
+        
+       h1{
+        font-size: 54px;
+        color: $dark;
+        margin-bottom: 20px;
+       }
+
+       p{
+        width: 90%;
+        font-size: 16px;
+        color: $dark;
+       }
+    }
+
+    figure{
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        height: 100%;
+        width: 100%;
+        padding-right: 0;
+
+        img{
+            margin-right: 0;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            figure{
+                justify-content: center;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .about_cards_div{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        width: 100%;
+        margin-bottom: 100px;
+
+        .sec_card{
+            background-color: $primaryColor;
+            color: white;
+        }
+
+        @media screen and (max-width: 768) {
+            margin-right: 0;
+            flex-wrap: wrap;
+        }
+    }
+
+    .profile_cards{
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-bottom: 120px;
+        // width: 100%;
+
+        @media screen and (max-width: 800px) {
+            display: none;
+        }
+
+        
+    }
+
+    .full_services{
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        @media screen and (max-width: 768px) {
+            justify-content: center;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .about_main_content{
+            margin-bottom: 50px;
+            justify-content: center;
+            
+            p{
+                width: 80vw;
+            }
+        }
+
+        figure{
+            justify-content: center;
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+   
+
+
+    @media screen and (max-width: 1024px) {
+        margin-left: 60px !important;
+    }
+    @media screen and (max-width: 645px) {
+        margin-left: 0px !important;
+    }
+}

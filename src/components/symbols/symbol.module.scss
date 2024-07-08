@@ -1,0 +1,38 @@
+@import '../../theme.scss';
+
+.outer{
+    height: 55px;
+    width: 55px;
+    background-color: $darkGray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inner{
+        background-color: black;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+// red circle symbol
+
+.red_circle{
+    width: 40px;
+    height: 40px;
+    background-color: $primaryColor;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
