@@ -17,7 +17,7 @@ const ProductCard = ({ data }) => {
   return (
     <div
       className={`${styles.product_card_container}`}
-      onClick={() => navigate("/products-info")}
+      onClick={() => navigate(`/products-info/${data?._id}`)}
     >
       <div className={`${styles.card_img_container}`}>
         <img src={data.images ? data.images[0] : p1} alt="" />

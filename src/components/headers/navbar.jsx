@@ -8,14 +8,18 @@ import ShoppingCart from "../cart/shopping-cart";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../redux/features/user-slice";
 import CodeMart from "../../assets/imgs/CodeMart.png";
+import useShoppingCart from "../../hooks/use-shopping-cart";
 
 export const Navbar = () => {
+ const { clearCart } = useShoppingCart();
   const {is_sidebar, sidebarOpen} = useContext(sidebarContext)
   const isLogin = useSelector(state => state.user.isLogin);
+  const isAdmin = useSelector(state => state.user.data.role);
   const dispatch = useDispatch()
   console.log(isLogin)
   const signOut = () => {
-    dispatch(removeUser())
+    dispatch(removeUser());
+    clearCart()
   }
   return (
     <>
@@ -47,6 +51,15 @@ export const Navbar = () => {
             <li className="nav-item mx-3">
             <NavLink to='/about' className={`nav-link active ${styles.nav_link_item}`}>About</NavLink>
             </li>
+            {
+              isLogin ? isAdmin == 'admin' ? 
+            <li className="nav-item mx-3">
+            <NavLink to='/admin/dashboard' className={`nav-link active ${styles.nav_link_item}`}>Dashboard</NavLink>
+            </li> : 
+            <li className="nav-item mx-3">
+            <NavLink to='/my-orders' className={`nav-link active ${styles.nav_link_item}`}>My Orders</NavLink>
+            </li> : ""
+            }
             {
               isLogin ? 
             <li className="nav-item mx-3">

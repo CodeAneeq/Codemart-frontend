@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,8 +6,29 @@ import 'swiper/css/pagination';
 import styles from "./sliders.module.scss";
 import dummyData from "../../services/dummy-data.json";
 import ProductCard from '../cards/product-card';
+import axios from 'axios';
+import baseURL from '../../services/constant';
 console.log(dummyData.products)
 export default function BestProductSlider() {
+
+  const [product, setProduct] = useState([]);
+  
+    const getProducts = async () => { 
+       try {
+         let response = await axios.get(`${baseURL}/product/api/get-products`);
+         let data = response.data.data;
+         
+         console.log(data);
+         setProduct(data)
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      useEffect(() => {
+        getProducts()
+      }, [])
+
   const swiperRef = useRef(null);
 
   const goNext = () => {
@@ -40,7 +61,7 @@ export default function BestProductSlider() {
         }}
         className="mySwiper"
       >
-        {dummyData?.products?.map((item, key) => (
+        {product.map((item, key) => (
           <SwiperSlide key={key} className='d-flex justify-content-center'>
             <ProductCard data={item} />
           </SwiperSlide>

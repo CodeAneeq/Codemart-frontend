@@ -1,0 +1,43 @@
+.table_row {
+  height: 130px;
+  width: 100vw !important;
+//   background-color: red !important;
+  user-select: none;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.img_container {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  margin-left: 10px;
+  
+  .product_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+.text_cell {
+  color: #333;
+  font-weight: 500;
+  padding: 10px;
+  padding-left: 20px;
+  text-align: start;
+}
+
+.title{
+  text-align: start;
+//   background-color: red;
+//   width: 80vw;
+  // width: 550px;
+}
+
+.del_btn{
+ font-size: xx-large;
+ cursor: pointer;
+ color: red;
+}

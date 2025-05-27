@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items at the top */
+//   height: calc(100vh - 60px); /* Adjust height based on header size */
+  padding: 0 100px; /* Optional padding for left and right */
+  white-space: normal; /* allows wrapping */
+  word-break: break-word; /* breaks long words */
+  overflow-wrap: break-word; 
+
+  >h2{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .orderList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1; /* Ensure the order card takes remaining space */
+    margin-top: 20px; /* Add margin between top bar and the order cards */
+    overflow-y: auto; /* Make content scrollable if necessary */
+  }
+
+  @media (max-width: 500px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 350px) {
+    padding: 0px 20px;
+  }
+}
+

@@ -16,7 +16,6 @@ const AuthLayout = ({children}) => {
           <div className="col-lg-6 col-sm-8 col-11 mx-auto ">
             <div className={styles.form_wrapper}>
             {children}
-            {/* <h2>Create an Account</h2> */}
             </div>
           </div>
         </div>

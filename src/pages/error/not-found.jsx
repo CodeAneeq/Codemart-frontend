@@ -3,6 +3,7 @@ import styles from './not-found.module.scss'
 import PageLayout from '../../components/layouts/page-layout'
 import PrimaryBtn from '../../components/buttons/primary-btn'
 import { NavLink } from 'react-router-dom'
+import AdminLayout from '../../components/layouts/admin-layout'
 
 const NotFoundPage = () => {
   return (

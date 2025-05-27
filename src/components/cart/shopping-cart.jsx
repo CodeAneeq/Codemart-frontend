@@ -12,7 +12,8 @@ const ShoppingCart = () => {
   const counter = getCartCount()
   return (
     <div className={styles.shopping_cart_icon}>
-      {counter > 0 && <span className={`${styles.cart_products_quantity}`}>{counter}</span>}
+      {isLogin ? counter > 0 && <span className={`${styles.cart_products_quantity}`}>{counter}</span> : ""} 
+      
       <img onClick={()=>isLogin ? navigate('/checkout') : navigate('/auth/login')} src={cartIcon} alt="search Icon" />
     </div>
   )

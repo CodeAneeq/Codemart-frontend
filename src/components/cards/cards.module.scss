@@ -3,6 +3,7 @@
 // category card styles
 
 .category_card_container{
+    cursor: pointer;
     border: 1px solid $borderGray;
     width: 180px;
     height: 140px;
@@ -23,6 +24,7 @@
 // product cards styles
 
 .product_card_container{
+    cursor: pointer;
     width: 250px;
     .card_img_container{
         height: 250px;

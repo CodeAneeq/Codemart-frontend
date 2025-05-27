@@ -4,7 +4,7 @@ import Rectangle from "../../assets/imgs/Rectangle.png";
 
 const SectionHeading = (props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={props.style}>
       <div className={styles.header}>
         <img src={Rectangle} alt="" />
         <p>{props.children}</p>

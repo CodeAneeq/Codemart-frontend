@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/layouts/page-layout.jsx";
 import styles from "./home.module.scss";
 import BannerSlider from "../../components/slider/banner-slider.jsx";
@@ -21,10 +21,31 @@ import FullServices from "../../components/cards/full-services.jsx";
 import DeliveryIcon from "../../assets/imgs/icon-delivery.png";
 import CustomerService from "../../assets/imgs/Icon-Customer.png";
 import Secure from "../../assets/imgs/Icon-secure.png";
+import baseURL from "../../services/constant.jsx";
+import axios from "axios";
 
 const bannerIMGS = [banner1, banner2, banner3, banner4];
 
 const HomePage = () => {
+
+  const [product, setProduct] = useState([]);
+  
+    const getProducts = async () => { 
+       try {
+         let response = await axios.get(`${baseURL}/product/api/get-products`);
+         let data = response.data.data;
+         
+         console.log(data);
+         setProduct(data)
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      useEffect(() => {
+              getProducts()
+            }, [])
+
   const navigate = useNavigate();
   return (
     <div>
@@ -50,8 +71,8 @@ const HomePage = () => {
             Our Products
           </SectionHeading>
           <div className="d-flex flex-wrap justify-content-center justify-content-md-between mt-4">
-            {dummyData?.products?.slice(0, 8).map((item) => (
-              <div key={item.id} className="mt-5">
+            {product.slice(0, 8).map((item) => (
+              <div  key={item.id} className="mt-5">
                 <ProductCard data={item} />
               </div>
             ))}

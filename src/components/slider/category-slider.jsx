@@ -1,35 +1,37 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import c1 from "../../assets/imgs/c1.png";
-import c2 from "../../assets/imgs/c2.png";
-import c3 from "../../assets/imgs/c3.png";
-import c4 from "../../assets/imgs/c4.png";
-import c5 from "../../assets/imgs/c5.png";
-import c6 from "../../assets/imgs/c6.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styles from "./sliders.module.scss";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { CategoryCard } from "../cards/category-card";
-
-const categories = [
-  { icon: c1, title: "Phones" },
-  { icon: c2, title: "Computers" },
-  { icon: c3, title: "SmartWatch" },
-  { icon: c4, title: "Camera" },
-  { icon: c5, title: "HeadPhones" },
-  { icon: c6, title: "Gaming" },
-  { icon: c1, title: "Phones" },
-  { icon: c2, title: "Computers" },
-  { icon: c3, title: "SmartWatch" },
-  { icon: c4, title: "Camera" },
-  { icon: c5, title: "HeadPhones" },
-  { icon: c6, title: "Gaming" },
-];
+import axios from "axios";
+import baseURL from "../../services/constant";
 
 export default function CategorySlider() {
   const swiperRef = useRef(null);
+   const [category, setCategory] = useState([]);
+   
+   const getCategories = async () => { 
+     try {
+       let response = await axios.get(`${baseURL}/category/api/get-category`);
+       let data = response.data.data;
+       
+       console.log(data);
+       setCategory(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+   useEffect(() => {
+    getCategories()
+   }, [])
+
+   useEffect(() => {
+  console.log("Updated category state:", category);
+}, [category]);
 
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -46,8 +48,12 @@ export default function CategorySlider() {
   return (
     <>
       <div className={`${styles.swiper_button_container} mb-3`}>
-        <div className={`${styles.nav_btn}`} onClick={goPrev}><FaArrowLeft /></div>
-        <div className={`${styles.nav_btn}`} onClick={goNext}><FaArrowRight /></div>
+        <div className={`${styles.nav_btn}`} onClick={goPrev}>
+          <FaArrowLeft />
+        </div>
+        <div className={`${styles.nav_btn}`} onClick={goNext}>
+          <FaArrowRight />
+        </div>
       </div>
       <Swiper
         ref={swiperRef}
@@ -61,9 +67,9 @@ export default function CategorySlider() {
         }}
         className="mySwiper"
       >
-        {categories.map((item, key) => (
-          <SwiperSlide key={key} className='d-flex justify-content-center'>
-            <CategoryCard icon={item.icon} title={item.title} />
+        {category.map((item, key) => (
+          <SwiperSlide key={key} className="d-flex justify-content-center">
+            <CategoryCard id={item._id} icon={item.image} title={item.name} />
           </SwiperSlide>
         ))}
       </Swiper>

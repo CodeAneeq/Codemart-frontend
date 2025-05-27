@@ -1,61 +1,3 @@
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//   addProductIntoCart,
-//   decreaseProductQuantity,
-//   removeAllProducts,
-//   removeProductFromCart,
-// } from "../redux/features/cart-slice";
-
-// const useShoppingCart = () => {
-//   const dispatch = useDispatch();
-//   const products = useSelector((state) => state.cart.products) ?? {};
-
-//   function addToCart(p) {
-//     if (!p) return;
-//     dispatch(addProductIntoCart(p));
-//   }
-//   function decreaseProductQuantityInCart(p) {
-//     if (!p) return;
-//     dispatch(decreaseProductQuantity(p));
-//   }
-//   function removeFromCart(p) {
-//     if (!p) return;
-//     dispatch(removeProductFromCart(p));
-//   }
-//   function clearCart(p) {
-//     if (!p) return;
-//     dispatch(removeAllProducts(p));
-//   }
-//   function getCartCount() {
-//     return products.length;
-//   }
-//   function getCartProducts() {
-//     return products;
-//   }
-//   function getCartProductQuantity(id) {
-//     if (!id) return;
-//     return products.find( item => item.product_id === id)?.quantity ?? 0;
-//   }
-//   function getCartSingleProducts(id) {
-//     if (!id) return;
-//     return products.find( item => item.product_id === id);
-//   }
-
-//   return {
-//     addToCart,
-//     decreaseProductQuantityInCart,
-//     removeFromCart,
-//     getCartCount,
-//     getCartProducts,
-//     getCartProductQuantity,
-//     getCartSingleProducts,
-//     clearCart,
-//   };
-// };
-
-// export default useShoppingCart;
-
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductIntoCart, decreaseProductQuantity, removeAllProducts, removeProductFromCart } from '../redux/features/cart-slice';
@@ -72,6 +14,8 @@ const useShoppingCart = () => {
             navigate("/auth/sign-up");
             return;
         };
+        console.log(p);
+        
         if (!p) return;
         dispatch(addProductIntoCart(p));
     }
@@ -107,7 +51,6 @@ const useShoppingCart = () => {
     if (!id) return;
     return products.find(item => item.product_id === id);
 }
-
 
 
 return {addToCart, decreaseProductQuantityInCart, removeFromCart, getCartCount, getCartProducts, getCartProductQuantity,   getCartSingleProduct, clearCart};

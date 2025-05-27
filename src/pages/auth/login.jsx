@@ -8,6 +8,7 @@ import { Helpers } from "../../services/helper";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/features/user-slice";
+import baseURL from "../../services/constant";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +39,8 @@ const LoginPage = () => {
       setLoader(true)
       try {
         const payload = { email, password };
-        const response = await axios.post("https://dev-mart-server.vercel.app/api/user/login", payload);
+        const response = await axios.post(`${baseURL}/user/api/login`, payload);
+        localStorage.setItem("token", response?.data?.data?.token);
         console.log(response?.data?.data, "Login Response");
         dispatch(addUser(response?.data?.data))
         setErrors({ email: "", password: "" });
@@ -78,7 +80,7 @@ const LoginPage = () => {
             err_msg={errors.password}
           />
           <small>
-            <Link to="/auth/login" className={styles.forget_password_link}>
+            <Link to="/auth/forgot-password" className={styles.forget_password_link}>
               Forgot Password?
             </Link>
           </small>

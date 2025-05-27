@@ -6,17 +6,21 @@ import { NavLink } from "react-router-dom";
 import GlobalSearch from '../searchBar/search-bar';
 import ShoppingCart from '../cart/shopping-cart';
 import { useDispatch, useSelector } from 'react-redux';
+import { removeUser } from '../../redux/features/user-slice';
+import useShoppingCart from '../../hooks/use-shopping-cart';
 
 
 export const Sidebar = () => {
   const { is_sidebar, sidebarClose } = useContext(sidebarContext);
+   const { clearCart } = useShoppingCart();
 
   const sidebarClass = is_sidebar ? `${styles.sidebar_container} ${styles.active}` : styles.sidebar_container;
   const isLogin = useSelector(state => state.user.isLogin);
   const dispatch = useDispatch()
   console.log(isLogin)
   const signOut = () => {
-    dispatch(removeUser())
+    dispatch(removeUser());
+    clearCart()
   }
 
   return (
@@ -42,7 +46,7 @@ export const Sidebar = () => {
             <NavLink to='/about' className={`nav-link active ${styles.nav_link_item}`}>About</NavLink>
             </li>
             {isLogin ? <li>
-            <NavLink className={`nav-link active ${styles.nav_link_item}`}>Sign Out</NavLink>
+            <NavLink onClick={signOut} className={`nav-link active ${styles.nav_link_item}`}>Sign Out</NavLink>
             </li> :  <li>
             <NavLink to='/auth/signup' className={`nav-link active ${styles.nav_link_item}`}>Sign Up</NavLink>
             </li>}

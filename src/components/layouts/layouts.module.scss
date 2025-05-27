@@ -1,3 +1,15 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 0 20px; // Optional
+}
+
+
 .auth_banner_img {
   min-height: 80vh;
   width     : 100%;
@@ -10,3 +22,42 @@
   justify-content: center;
   align-items    : center;
 }
+
+.admin_layout_container{
+  display: flex;
+  gap: 350px;
+
+  @media (max-width: 600px) {
+    gap: 260px
+  }
+
+   @media (max-width: 425px) {
+      gap: 210px;
+  }
+   @media (max-width: 375px) {
+      gap: 160px;
+  }
+   @media (max-width: 320px) {
+      gap: 140px;
+  }
+}
+
+.admin_layout_children{
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+
+
+  .main-content-wrapper {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+}
+
+
+
+
+
+
+

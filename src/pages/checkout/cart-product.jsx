@@ -6,26 +6,63 @@ import ProductQuantityCounter from "../../components/cart/product-quantity-count
 import useShoppingCart from "../../hooks/use-shopping-cart";
 import { Helpers } from "../../services/helper";
 
-export const CartProduct = ({data}) => {
+// export const CartProduct = ({data}) => {
 
-  const { addToCart, decreaseProductQuantityInCart, removeFromCart, getCartCount, getCartProducts, getCartProductQuantity, getCartSingleProducts, clearCart, } = useShoppingCart();
+//   const { addToCart, decreaseProductQuantityInCart, removeFromCart, getCartCount, getCartProducts, getCartProductQuantity, getCartSingleProducts, clearCart, } = useShoppingCart();
+//   const totalPrice = data.product.price * data.quantity;
+//   return (
+//     <tr className={`${styles.table_row}`}>
+//       <td>
+//         <div className={`${styles.product_cell}`}>
+//           <div className={`${styles.img_container}`}>
+//             <img className={`${styles.product_img}`} src={data.product?.images?.[0]} alt="" />
+//             <img className={`${styles.cross_icon}`} src={iconCancel} alt=""  onClick={() => removeFromCart(data?.product)}/>
+//           </div>
+//           <p className="m-0 ps-2">{data.product.name}</p>
+//         </div>
+//       </td>
+//       <td>{Helpers.priceFormatter(data?.product?.price)}</td>
+//       <td>
+//         <ProductQuantityCounter small qty={data.quantity} onIncrement={() => addToCart(data?.product)} onDecrement={() => decreaseProductQuantityInCart(data?.product)}></ProductQuantityCounter>
+//       </td>
+//       <td>{Helpers.priceFormatter(totalPrice)}</td>
+//     </tr>
+//   );
+// };
+export const CartProduct = ({data}) => {
+  const { addToCart, decreaseProductQuantityInCart, removeFromCart } = useShoppingCart();
   const totalPrice = data.product.price * data.quantity;
+  
   return (
     <tr className={`${styles.table_row}`}>
       <td>
         <div className={`${styles.product_cell}`}>
           <div className={`${styles.img_container}`}>
-            <img className={`${styles.product_img}`} src={data.product?.images?.[0]} alt="" />
-            <img className={`${styles.cross_icon}`} src={iconCancel} alt=""  onClick={() => removeFromCart(data?.product)}/>
+            <img className={`${styles.product_img}`} src={data.product?.images?.[0]} alt={data.product.name} />
+            <img 
+              className={`${styles.cross_icon}`} 
+              src={iconCancel} 
+              alt="Remove item" 
+              onClick={() => removeFromCart(data?.product)}
+            />
           </div>
-          <p className="m-0 ps-2">{data.product.name}</p>
+          <p>{data.product.name}</p>
         </div>
       </td>
-      <td>{Helpers.priceFormatter(data?.product?.price)}</td>
-      <td>
-        <ProductQuantityCounter small qty={data.quantity} onIncrement={() => addToCart(data?.product)} onDecrement={() => decreaseProductQuantityInCart(data?.product)}></ProductQuantityCounter>
+      <td data-label="Price" className={styles.price_cell}>
+        {Helpers.priceFormatter(data?.product?.price)}
       </td>
-      <td>{Helpers.priceFormatter(totalPrice)}</td>
+      <td data-label="Quantity" className={styles.quantity_cell}>
+        <ProductQuantityCounter 
+          small 
+          qty={data.quantity} 
+          onIncrement={() => addToCart(data?.product)} 
+          onDecrement={() => decreaseProductQuantityInCart(data?.product)} 
+        />
+      </td>
+      <td data-label="Total" className={styles.price_cell}>
+        {Helpers.priceFormatter(totalPrice)}
+      </td>
     </tr>
   );
 };
