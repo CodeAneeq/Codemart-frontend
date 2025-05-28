@@ -40,6 +40,7 @@ const SignUpPage = () => {
         const payload = { email, password, name };
         const response = await axios.post(`${baseURL}/user/api/sign-up`, payload);
         console.log(response?.data?.data, "Sign Up Response");
+        localStorage.setItem("token", response?.data?.data?.token);   
         dispatch(addUser(response?.data?.data));
         setErrors({ email: "", password: "", name: "" });
         navigate('/');

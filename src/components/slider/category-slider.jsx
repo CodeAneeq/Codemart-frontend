@@ -15,7 +15,7 @@ export default function CategorySlider() {
    
    const getCategories = async () => { 
      try {
-       let response = await axios.get(`${baseURL}/category/api/get-category`);
+       let response = await axios.get( `${baseURL}/category/api/get-category`);
        let data = response.data.data;
        
        console.log(data);

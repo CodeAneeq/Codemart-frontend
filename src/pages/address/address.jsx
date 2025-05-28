@@ -64,6 +64,7 @@ const AddressPage = () => {
         }
       }
       const token = localStorage.getItem("token"); // if token is required
+      console.log(token);
       
       const response = await axios.post(
         `${baseURL}/order/api/create-order`,
