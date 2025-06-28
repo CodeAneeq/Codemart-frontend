@@ -1,27 +1,40 @@
-# 🛒 MERN E-Commerce Web App
+# CodeMart Ecommerce - Frontend
 
-A full-stack E-Commerce application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. This app allows users to browse products, add items to the cart, and place orders. It also includes an admin panel to manage products, users, and orders.
-
----
-
-## 📌 Features
-
-### 👤 User Functionality
-- Register and login with secure authentication (JWT)
-- View all products
-- Filter/search products
-- Add/remove items to/from cart
-- Place orders and view order history
-
-### 🛠️ Admin Functionality
-- Admin login
-- Add, edit, or delete products
-- Manage users and orders
+This is the **frontend part of the CodeMart Ecommerce Web Application**, built using **React.js**.
 
 ---
 
-## 🧰 Tech Stack
+## 🛠️ Tech Stack
 
-| Frontend | Backend | Database | Others |
-|----------|---------|----------|--------|
-| React.js | Node.js | MongoDB  | JWT, Express.js, Axios, Mongoose, TailwindCSS or Bootstrap |
+- React.js
+- React Router
+- Axios
+- SCSS / CSS
+- Context API / Redux (if used)
+
+---
+
+## 📸 Features
+
+- Product Listings
+- Product Details Page
+- Shopping Cart
+- User Authentication UI
+- Checkout UI
+- Responsive Design
+
+---
+
+## 📂 Backend Repository
+
+👉 [CodeMart Ecommerce - Backend](https://github.com/CodeAneeq/CodeMart)
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
+git clone https://github.com/CodeAneeq/codemart-ecommerce-frontend.git
+cd codemart-ecommerce-frontend
+npm install
+npm start
