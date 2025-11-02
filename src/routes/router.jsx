@@ -70,7 +70,7 @@ export const publicRoutes = createBrowserRouter([
         element: <Suspense fallback={<Loader></Loader>}><ProductsPage></ProductsPage></Suspense>,
     },
     {
-        path: '/products-info',
+        path: '/products-info/:id',
         element: <Suspense fallback={<Loader></Loader>}><ProductInfoPage></ProductInfoPage></Suspense>,
     },
     {
