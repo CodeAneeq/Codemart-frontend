@@ -77,6 +77,10 @@ export const publicRoutes = createBrowserRouter([
         path: '/contact',
         element: <Suspense fallback={<Loader></Loader>}><ContactPage></ContactPage></Suspense>,
     },
+    {
+        path: '/category-filter/:id',
+        element: <Suspense fallback={<Loader></Loader>}><CategoryFilter></CategoryFilter></Suspense>,
+    },
 ])
 
 export const privateRoutes = createBrowserRouter([
