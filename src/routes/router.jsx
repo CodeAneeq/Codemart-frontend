@@ -18,7 +18,7 @@ const NotFoundPage = lazy(() => import("../pages/error/not-found"));
 const ProductsPage = lazy(() => import("../pages/products/products"));
 const ContactPage = lazy(() => import("../pages/contact/contact"));
 const ProductInfoPage = lazy(() => import("../pages/product-info/product-info"));
-const {CheckoutPage} = lazy(() => import("../pages/checkout/checkout"));
+const CheckoutPage = lazy(() => import("../pages/checkout/checkout"));
 const MyOrders = lazy(() => import("../pages/my-orders/my-orders.jsx"));
 const AdminDashboard = lazy(() => import("../pages/admin/dashboard.jsx"));
 const AdminRating = lazy(() => import("../pages/admin/admin-rating.jsx"));
