@@ -6,6 +6,7 @@ import ProductQuantityCounter from "../../components/cart/product-quantity-count
 import useShoppingCart from "../../hooks/use-shopping-cart";
 import { Helpers } from "../../services/helper";
 
+<<<<<<< HEAD
 // export const CartProduct = ({data}) => {
 
 //   const { addToCart, decreaseProductQuantityInCart, removeFromCart, getCartCount, getCartProducts, getCartProductQuantity, getCartSingleProducts, clearCart, } = useShoppingCart();
@@ -30,6 +31,10 @@ import { Helpers } from "../../services/helper";
 //   );
 // };
 export const CartProduct = ({data, removeFromCart, decreaseProductQuantityInCart, addToCart, actionClassname, addToCart2, quantityCell, totalCell}) => {
+=======
+export const CartProduct = ({data}) => {
+  const { addToCart, decreaseProductQuantityInCart, removeFromCart } = useShoppingCart();
+>>>>>>> caca8796d31e684aef4b38cb80c08ed413f039f5
   const totalPrice = data.product.price * data.quantity;
   
   return (
@@ -68,3 +73,5 @@ export const CartProduct = ({data, removeFromCart, decreaseProductQuantityInCart
     </tr>
   );
 };
+
+export default CartProduct

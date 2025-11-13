@@ -1,8 +1,40 @@
-# React + Vite
+# CodeMart Ecommerce - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend part of the CodeMart Ecommerce Web Application**, built using **React.js**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+
+- React.js
+- React Router
+- Axios
+- SCSS / CSS
+- Context API / Redux (if used)
+
+---
+
+## 📸 Features
+
+- Product Listings
+- Product Details Page
+- Shopping Cart
+- User Authentication UI
+- Checkout UI
+- Responsive Design
+
+---
+
+## 📂 Backend Repository
+
+👉 [CodeMart Ecommerce - Backend](https://github.com/CodeAneeq/CodeMart)
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
+git clone https://github.com/CodeAneeq/codemart-ecommerce-frontend.git
+cd codemart-ecommerce-frontend
+npm install
+npm start
