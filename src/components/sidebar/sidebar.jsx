@@ -45,6 +45,9 @@ export const Sidebar = () => {
             <li>
             <NavLink to='/about' className={`nav-link active ${styles.nav_link_item}`}>About</NavLink>
             </li>
+            <li>
+            <NavLink to='/wishlist' className={`nav-link active ${styles.nav_link_item}`}>Wish List</NavLink>
+            </li>
             {isLogin ? <li>
             <NavLink onClick={signOut} className={`nav-link active ${styles.nav_link_item}`}>Sign Out</NavLink>
             </li> :  <li>

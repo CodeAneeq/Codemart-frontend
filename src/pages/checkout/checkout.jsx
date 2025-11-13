@@ -24,7 +24,7 @@ const CheckoutPage = () => {
           </thead>
           <br />
           <tbody>
-            {cart_products && cart_products.length > 0 && cart_products.map(item => <CartProduct key={item.product_id} data={item}></CartProduct>)}
+            {cart_products && cart_products.length > 0 && cart_products.map(item => <CartProduct key={item.product_id} data={item} addToCart={addToCart} decreaseProductQuantityInCart={decreaseProductQuantityInCart} removeFromCart={removeFromCart} actionClassname={"d-none"}></CartProduct>)}
           </tbody>
         </table>
         <div className="mt-5 d-flex justify-content-end">

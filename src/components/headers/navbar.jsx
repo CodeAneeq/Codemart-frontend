@@ -42,30 +42,34 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse d-none" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/' className={`nav-link active ${styles.nav_link_item}`}>Home</NavLink>
             </li>
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/contact' className={`nav-link active ${styles.nav_link_item}`}>Contact</NavLink>
             </li>
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/about' className={`nav-link active ${styles.nav_link_item}`}>About</NavLink>
             </li>
+           { 
+             isAdmin !== "admin" ? <li className={`${styles.li} nav-item mx-3`}>
+            <NavLink to='/wishlist' className={`nav-link active ${styles.nav_link_item}`}>Wish List</NavLink>
+            </li> : <></>}
             {
               isLogin ? isAdmin == 'admin' ? 
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/admin/dashboard' className={`nav-link active ${styles.nav_link_item}`}>Dashboard</NavLink>
             </li> : 
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/my-orders' className={`nav-link active ${styles.nav_link_item}`}>My Orders</NavLink>
             </li> : ""
             }
             {
               isLogin ? 
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink onClick={signOut} className={`nav-link active ${styles.nav_link_item}`}>Sign Out</NavLink>
             </li> : 
-            <li className="nav-item mx-3">
+            <li className={`${styles.li} nav-item mx-3`}>
             <NavLink to='/auth/signup' className={`nav-link active ${styles.nav_link_item}`}>Sign Up</NavLink>
             </li>
             }

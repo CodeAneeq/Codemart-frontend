@@ -12,4 +12,11 @@
         border-bottom: 1px solid $dark;
        }
     }
+
+    .li{
+        @media (max-width: "1200px") {
+            // background: red;
+            font-size: 11px !important;
+        }
+    }
 }

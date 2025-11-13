@@ -10,6 +10,7 @@ import { getCartProductDetails, getCartTotalPrice } from '../../redux/features/c
 export const CheckoutSummary = () => {
   const [err, setErr] = useState("");
   const [loader, setLoader] = useState(false)
+  const [paymentMethod, setPaymentMethod] = useState("cash");
   const navigate = useNavigate();
   const { getCartProducts } = useShoppingCart();
   const products = getCartProducts()
@@ -26,7 +27,7 @@ export const CheckoutSummary = () => {
     }
     setLoader(false)
     setErr("")
-    navigate('/address');
+    navigate('/address', {state: {paymentMethod}});
   };
 
   return (
@@ -42,7 +43,10 @@ export const CheckoutSummary = () => {
         </div>
         <div className='d-flex justify-content-between border-bottom border-3 py-2'>
             <div>Payment Method :</div>
-            <div>Cash On Delivery</div>
+            <select style={{background: "transparent", border: "none"}} value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
+              <option value="cash">Cash On Delivery</option>
+              <option value="card">Stripe</option>
+            </select>
         </div>
         <div className='d-flex justify-content-between py-2'>
             <div>Total:</div>

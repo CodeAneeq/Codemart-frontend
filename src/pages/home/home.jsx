@@ -70,9 +70,9 @@ const HomePage = () => {
           <SectionHeading title={"Explore our Products"}>
             Our Products
           </SectionHeading>
-          <div className="d-flex flex-wrap justify-content-center justify-content-md-between mt-4">
+          <div className="d-flex flex-wrap justify-content-center justify-content-md-between mt-4 gap-4">
             {product.slice(0, 8).map((item) => (
-              <div  key={item.id} className="mt-5">
+              <div  key={item.id} className="mt-5 ">
                 <ProductCard data={item} />
               </div>
             ))}

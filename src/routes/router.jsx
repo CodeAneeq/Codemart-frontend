@@ -27,6 +27,7 @@ const AdminOrders = lazy(() => import("../pages/admin/admin-orders.jsx"));
 const AdminCategories = lazy(() => import("../pages/admin/admin-category.jsx"));
 const AdminAddProduct = lazy(() => import("../pages/admin/admin-add-product.jsx"));
 const AdminAddCategory= lazy(() => import("../pages/admin/admin-add-category.jsx"));
+const WishListProducts = lazy(() => import('../pages/wishlist/wishlist.jsx'))
 
 export const publicRoutes = createBrowserRouter([
     {
@@ -70,7 +71,7 @@ export const publicRoutes = createBrowserRouter([
         element: <Suspense fallback={<Loader></Loader>}><ProductsPage></ProductsPage></Suspense>,
     },
     {
-        path: '/products-info',
+        path: '/products-info/:id',
         element: <Suspense fallback={<Loader></Loader>}><ProductInfoPage></ProductInfoPage></Suspense>,
     },
     {
@@ -107,6 +108,10 @@ export const privateRoutes = createBrowserRouter([
     {
         path: '/checkout',
         element: <Suspense fallback={<Loader></Loader>}><CheckoutPage></CheckoutPage></Suspense>,
+    },
+    {
+        path: "/wishlist",
+        element: <Suspense fallback={<Loader></Loader>}><WishListProducts></WishListProducts></Suspense>
     },
     {
         path: '/order-success',

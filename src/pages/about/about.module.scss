@@ -4,6 +4,8 @@
     margin-top: 50px;
     margin-right: 0 !important;
     margin-left: 100px !important;
+    width: auto;
+    overflow-x: hidden;
 
     .about_main_content{
        display: flex;
@@ -28,8 +30,8 @@
         display: flex;
         justify-content: end;
         align-items: end;
-        height: 100%;
-        width: 100%;
+        height: 90%;
+        width: 90%;
         padding-right: 0;
 
         img{

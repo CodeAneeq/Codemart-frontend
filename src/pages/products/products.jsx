@@ -33,7 +33,7 @@ const ProductsPage = () => {
           <SectionHeading title={"This Month"}>
             Best Selling Products
           </SectionHeading>
-        <div className='d-flex flex-wrap justify-content-center justify-content-md-between mt-4  p-3'>
+        <div className='d-flex flex-wrap justify-content-center justify-content-md-between mt-4  p-3 gap-4'>
         {
           product.map((item)=>(
             <div  key={item.id} className='mt-5'>
