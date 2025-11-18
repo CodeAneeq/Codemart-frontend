@@ -8,6 +8,7 @@ import SearchResult from "../pages/search-result/search-result.jsx";
 
 
 const HomePage = lazy(()=> import("../pages/home/home"));
+const AuthSuccess = lazy(() => import("../pages/auth/auth-success.jsx"))
 const LoginPage = lazy(() => import("../pages/auth/login"));
 const SignUpPage = lazy(() => import("../pages/auth/signup"));
 const ForgetPasswordPage = lazy(() => import("../pages/auth/forget-password"));
@@ -41,6 +42,10 @@ export const publicRoutes = createBrowserRouter([
     {
         path: '/auth/login',
         element: <Suspense fallback={<Loader></Loader>}><LoginPage></LoginPage></Suspense>,
+    },
+    {
+        path: '/auth-success',
+        element: <Suspense fallback={<Loader></Loader>}><AuthSuccess></AuthSuccess></Suspense>,
     },
     {
         path: '/auth/signup',

@@ -14,7 +14,7 @@ export const Navbar = () => {
  const { clearCart } = useShoppingCart();
   const {is_sidebar, sidebarOpen} = useContext(sidebarContext)
   const isLogin = useSelector(state => state.user.isLogin);
-  const isAdmin = useSelector(state => state.user.data.role);
+  const isAdmin = useSelector(state => state.user?.data?.role);
   const dispatch = useDispatch()
   console.log(isLogin)
   const signOut = () => {

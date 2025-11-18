@@ -3,6 +3,7 @@ import AuthLayout from "../../components/layouts/auth-layout";
 import styles from "./auth.module.scss";
 import { TextInput } from "../../components/inputs/text-input";
 import PrimaryBtn from "../../components/buttons/primary-btn";
+import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { Helpers } from "../../services/helper";
 import axios from "axios";
@@ -90,13 +91,18 @@ const LoginPage = () => {
             </PrimaryBtn>
             {authError && <div className="text-danger"><small>{authError}</small></div>}
           </div>
+        </form>
+           <div style={{marginBottom: "30px"}}>
+             <PrimaryBtn onClick={() => window.open(`${baseURL}/auth/google`, "_self")} loading={loader ? true : false} disabled={loader ? true : false} style={{backgroundColor: "white", border: "1px solid black", color: "black", borderRadius: "30px", display: "flex", alignItems: "center", gap: "8px", justifyContent: "center"}}>
+             <FaGoogle/>  Login With Google 
+            </PrimaryBtn>
+           </div>
           <span>
             Create a New Account?
             <Link to="/auth/signup" className={styles.login_link}>
               Sign Up
             </Link>
           </span>
-        </form>
       </div>
     </AuthLayout>
   );

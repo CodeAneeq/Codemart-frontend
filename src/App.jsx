@@ -10,7 +10,7 @@ function App() {
   const user = useSelector(state => state.user.data);
   
   let route;
-  if (isLogin && user.role == 'admin') {
+  if (isLogin && user?.role == 'admin') {
     route = adminRoutes
   } else if (isLogin) {
     route = privateRoutes

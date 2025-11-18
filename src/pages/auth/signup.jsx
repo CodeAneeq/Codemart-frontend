@@ -9,6 +9,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/features/user-slice";
 import baseURL from "../../services/constant";
+import { FaGoogle } from "react-icons/fa";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
@@ -97,6 +98,11 @@ const SignUpPage = () => {
             {authError && <div className="text-danger"><small>{authError}</small></div>}
           </div>
         </form>
+          <div style={{marginBottom: "30px"}}>
+             <PrimaryBtn onClick={() => window.open(`${baseURL}/auth/google`, "_self")} loading={loader ? true : false} disabled={loader ? true : false} style={{backgroundColor: "white", border: "1px solid black", color: "black", borderRadius: "30px", display: "flex", alignItems: "center", gap: "8px", justifyContent: "center"}}>
+             <FaGoogle/>  Sign In With Google 
+            </PrimaryBtn>
+           </div>
         <span>
           Already have an account?{" "}
           <Link to="/auth/login" className={styles.login_link}>

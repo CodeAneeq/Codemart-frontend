@@ -23,10 +23,14 @@ import CustomerService from "../../assets/imgs/Icon-Customer.png";
 import Secure from "../../assets/imgs/Icon-secure.png";
 import baseURL from "../../services/constant.jsx";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const bannerIMGS = [banner1, banner2, banner3, banner4];
 
 const HomePage = () => {
+  const user = useSelector(state => state.user);
+  console.log(user);
+  
 
   const [product, setProduct] = useState([]);
   

@@ -48,28 +48,28 @@ const cartSlice = createSlice({
 });
 
 // Selectors
-export const getCartProducts = (state) => state.cart.products;
+export const getCartProducts = (state) => state.cart?.products;
 
 export const getCartTotalQuantity = (state) => 
-  state.cart.products.reduce((total, item) => total + item.quantity, 0);
+  state.cart.products?.reduce((total, item) => total + item.quantity, 0);
 
 export const getCartTotalPrice = (state) =>
-  state.cart.products.reduce(
+  state.cart.products?.reduce(
     (total, item) => total + (item.product.price * item.quantity),
     0
   );
 
 export const getProductQuantity = (state, productId) => {
-  const product = state.cart.products.find(
+  const product = state.cart?.products?.find(
     item => item.product_id === productId
   );
   return product ? product.quantity : 0;
 };
 
-export const getCartItemCount = (state) => state.cart.products.length;
+export const getCartItemCount = (state) => state.cart.products?.length;
 
 export const getCartProductDetails = (state) => 
-  state.cart.products.map(item => ({
+  state.cart.products?.map(item => ({
     product: item.product,
     quantity: item.quantity,
     totalPrice: item.product.price * item.quantity
